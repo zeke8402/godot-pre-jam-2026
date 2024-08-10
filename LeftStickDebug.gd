@@ -29,6 +29,3 @@ func update_position():
 	
 	# Set Arrow's global position to Player's global position plus an offset
 	global_transform.origin = player.global_transform.origin + Vector3(opposite_dir.x, 0, opposite_dir.y).normalized() * distance_from_player
-
-	# Rotate the Arrow 90 degrees around the Z axis
-	global_transform.basis = Basis().rotated(Vector3.UP, deg_to_rad(rotation_angle)) * global_transform.basis
