@@ -25,10 +25,10 @@ func update_position():
 		visible = false 
 	else:
 		visible = true
-	input_dir = -input_dir
+	var opposite_dir = -input_dir
 	
 	# Set Arrow's global position to Player's global position plus an offset
-	global_transform.origin = player.global_transform.origin + Vector3(input_dir.x, 0, input_dir.y).normalized() * distance_from_player
+	global_transform.origin = player.global_transform.origin + Vector3(opposite_dir.x, 0, opposite_dir.y).normalized() * distance_from_player
 
 	# Rotate the Arrow 90 degrees around the Z axis
-	global_transform.basis = Basis().rotated(Vector3.RIGHT, deg_to_rad(rotation_angle)) * global_transform.basis
+	global_transform.basis = Basis().rotated(Vector3.UP, deg_to_rad(rotation_angle)) * global_transform.basis

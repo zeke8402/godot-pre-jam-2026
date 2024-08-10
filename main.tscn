@@ -42,11 +42,13 @@ transform = Transform3D(-0.984118, 0, -0.177514, 0, 1, 0, 0.177514, 0, -0.984118
 
 [node name="LeftStickDebug" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_6roqc")
 script = ExtResource("2_xkdix")
 
 [node name="RightStickDebug" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_3jb2r")
 script = ExtResource("3_pm4mi")
 

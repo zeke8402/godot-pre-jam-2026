@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 4.5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+@onready var player_body = $PlayerBody
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -19,7 +20,6 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-	print(input_dir)
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -29,3 +29,17 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	handle_rotation()
+	
+func handle_rotation():
+	# Get the right joystick input using the "aim_left" convention
+	var right_stick_input = Input.get_vector("aim_left", "aim_right", "aim_forward", "aim_back")
+	
+	# Check if there is any input
+	if right_stick_input.length_squared() > 0:
+		# Calculate the rotation angle
+		var angle = atan2(right_stick_input.x, right_stick_input.y)
+		
+		# Rotate the character model
+		self.rotation_degrees.y = rad_to_deg(angle)
+

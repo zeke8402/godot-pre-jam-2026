@@ -17,7 +17,6 @@ func update_position():
 	var player = get_parent()
 	
 	if player == null:
-		print("Parent node (Player) not found!")
 		return
 
 	# Get the direction vector from input

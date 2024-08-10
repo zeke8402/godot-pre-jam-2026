@@ -70,7 +70,7 @@ script = ExtResource("1_svk6u")
 
 [node name="Pivot" type="Node3D" parent="."]
 
-[node name="Player Body" type="MeshInstance3D" parent="."]
+[node name="PlayerBody" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.77, 0, 0, 0, 1.77, 0, 0, 0, 1.77, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_sqnmu")
 
