@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ch1a3antswkyt"]
 
-[ext_resource type="Script" uid="uid://dqoeqt1g34eun" path="res://Player.gd" id="1_svk6u"]
+[ext_resource type="Script" uid="uid://dqoeqt1g34eun" path="res://player.gd" id="1_svk6u"]
 [ext_resource type="PackedScene" uid="uid://bfyi0cjugc382" path="res://new-kenney.glb" id="2_onrkg"]
 
 [sub_resource type="Shader" id="Shader_whfa5"]

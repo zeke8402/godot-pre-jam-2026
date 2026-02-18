@@ -25,7 +25,7 @@ project/assembly_name="coop-game"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

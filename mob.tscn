@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://8xxc2rvb38vq"]
 
 [ext_resource type="Script" uid="uid://bllylxsn4rsuj" path="res://mob.gd" id="1_dy6sc"]
+[ext_resource type="PackedScene" uid="uid://jl1f2ibydn6q" path="res://enemy-zombie.glb" id="2_nokgg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfba5"]
 albedo_color = Color(0.19215687, 0.27058825, 0.96862745, 1)
@@ -19,8 +20,12 @@ script = ExtResource("1_dy6sc")
 
 [node name="Body" type="MeshInstance3D" parent="Pivot" unique_id=1557437383]
 transform = Transform3D(1.77, 0, 0, 0, 1.77, 0, 0, 0, 1.77, 0, 0, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_dy6sc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2143789022]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0053100586, 0)
 shape = SubResource("CapsuleShape3D_jfba5")
+
+[node name="enemy-zombie" parent="CollisionShape3D" unique_id=1346472558 instance=ExtResource("2_nokgg")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -2, 0)
