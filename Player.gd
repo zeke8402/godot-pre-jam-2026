@@ -8,8 +8,17 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var player_body = $PlayerBody
 @onready var anim_player = $KennyModel/AnimationPlayer
+@onready var camera_pivot: Node3D = get_tree().current_scene.get_node_or_null("CameraPivot")
 
 var current_animation = 'idle'
+var camera_world_offset := Vector3.ZERO
+
+func _ready():
+	if camera_pivot:
+		var camera := camera_pivot.get_node_or_null("Camera3D") as Camera3D
+		if camera:
+			camera.current = true
+		camera_world_offset = camera_pivot.global_position - global_position
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -41,6 +50,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 	handle_rotation(delta)
+	update_camera_follow()
 	
 func handle_rotation(delta):
 	var aim_input = Input.get_vector("aim_left", "aim_right", "aim_forward", "aim_back")
@@ -68,3 +78,7 @@ func play_animation(name):
 	if current_animation != name:
 		current_animation = name
 		anim_player.play(name)
+
+func update_camera_follow():
+	if camera_pivot:
+		camera_pivot.global_position = global_position + camera_world_offset
