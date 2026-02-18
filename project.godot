@@ -23,10 +23,9 @@ config/icon="res://project/branding/icon.svg"
 
 project/assembly_name="coop-game"
 
-[editor]
+[editor_plugins]
 
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
+enabled=PackedStringArray()
 
 [file_customization]
 

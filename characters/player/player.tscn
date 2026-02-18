@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ch1a3antswkyt"]
 
-[ext_resource type="Script" uid="uid://dqoeqt1g34eun" path="res://characters/player/Player.gd" id="1_svk6u"]
+[ext_resource type="Script" uid="uid://dqoeqt1g34eun" path="res://player.gd" id="1_svk6u"]
+[ext_resource type="PackedScene" uid="uid://bfyi0cjugc382" path="res://new-kenney.glb" id="2_onrkg"]
 
 [sub_resource type="Shader" id="Shader_whfa5"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.2.2.stable's StandardMaterial3D.
@@ -63,25 +64,19 @@ material = SubResource("ShaderMaterial_3sdul")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wsqg1"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_kxsbp"]
-
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=901472882]
 script = ExtResource("1_svk6u")
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="Pivot" type="Node3D" parent="." unique_id=2110071287]
 
-[node name="PlayerBody" type="MeshInstance3D" parent="."]
+[node name="PlayerBody" type="MeshInstance3D" parent="." unique_id=405467751]
 transform = Transform3D(1.77, 0, 0, 0, 1.77, 0, 0, 0, 1.77, 0, 0, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_sqnmu")
 
-[node name="Player Hitbox" type="CollisionShape3D" parent="."]
+[node name="Player Hitbox" type="CollisionShape3D" parent="." unique_id=1929446699]
 transform = Transform3D(1.77, 0, 0, 0, 1.77, 0, 0, 0, 1.77, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_wsqg1")
 
-[node name="LEYE" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, -0.305242, 0.753458, -0.825709)
-mesh = SubResource("SphereMesh_kxsbp")
-
-[node name="REYE" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0.278755, 0.753458, -0.840085)
-mesh = SubResource("SphereMesh_kxsbp")
+[node name="KennyModel" parent="." unique_id=29210567 instance=ExtResource("2_onrkg")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -2, 0)

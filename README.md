@@ -1,1 +1,1 @@
-Bare Bones Scene for Godot.
+cooperative couch game.
