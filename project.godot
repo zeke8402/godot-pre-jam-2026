@@ -15,9 +15,9 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="coop-game"
-run/main_scene="res://main.tscn"
+run/main_scene="res://levels/level_1/main.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://project/branding/icon.svg"
 
 [dotnet]
 
@@ -26,6 +26,19 @@ project/assembly_name="coop-game"
 [editor_plugins]
 
 enabled=PackedStringArray()
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://autoloads/": "red",
+"res://characters/": "orange",
+"res://environment/": "yellow",
+"res://interface/": "green",
+"res://levels/": "teal",
+"res://project/": "blue",
+"res://shared/": "purple"
+}
 
 [input]
 
