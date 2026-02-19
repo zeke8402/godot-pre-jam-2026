@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dpcn3gig3gm0s"]
 
-[ext_resource type="PackedScene" uid="uid://ch1a3antswkyt" path="res://player.tscn" id="1_fngxu"]
+[ext_resource type="PackedScene" uid="uid://ch1a3antswkyt" path="res://characters/player/player.tscn" id="1_fngxu"]
 [ext_resource type="Script" uid="uid://cxcsquu50gg3p" path="res://mob_spawner.gd" id="1_lquwl"]
-[ext_resource type="Script" uid="uid://7ltpussi4kva" path="res://LeftStickDebug.gd" id="2_xkdix"]
-[ext_resource type="Script" uid="uid://d2dpq0e20gvns" path="res://RightStickDebug.gd" id="3_pm4mi"]
+[ext_resource type="Script" uid="uid://7ltpussi4kva" path="res://characters/player/control/LeftStickDebug.gd" id="2_xkdix"]
+[ext_resource type="Script" uid="uid://d2dpq0e20gvns" path="res://characters/player/control/RightStickDebug.gd" id="3_pm4mi"]
 [ext_resource type="PackedScene" uid="uid://8xxc2rvb38vq" path="res://mob.tscn" id="4_1bvp3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qh7yj"]
@@ -57,7 +57,7 @@ transform = Transform3D(1, 0, 0, 0, -0.727258, 0.686364, 0, -0.686364, -0.727258
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=901472882 instance=ExtResource("1_fngxu")]
-transform = Transform3D(-0.984118, 0, -0.177514, 0, 1, 0, 0.177514, 0, -0.984118, 0, 2.34236, 0)
+transform = Transform3D(0.9999997, 0, 0, 0, 1, 0, 0, 0, 0.9999997, 0, 2.34236, 0)
 SPEED = 8.0
 
 [node name="LeftStickDebug" type="MeshInstance3D" parent="Player" unique_id=1534240645]
@@ -72,11 +72,17 @@ visible = false
 mesh = SubResource("CylinderMesh_3jb2r")
 script = ExtResource("3_pm4mi")
 
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Player" unique_id=649421961]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, 0, 0, 0)
+remote_path = NodePath("../../CameraPivot")
+update_rotation = false
+update_scale = false
+
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=539584625]
-transform = Transform3D(-1, 0, -8.74228e-08, -4.2147e-08, 0.876113, 0.482105, 7.65923e-08, 0.482105, -0.876113, 0, 13.4138, -22.5196)
+transform = Transform3D(-0.9999997, 7.274279e-08, -1.3231859e-07, 0, 0.87630665, 0.4817536, 1.5099576e-07, 0.48175374, -0.8763064, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1477332775]
-transform = Transform3D(1, 1.63439e-08, 1.54134e-09, -1.63439e-08, 0.982369, 0.186953, 1.54137e-09, -0.186953, 0.982369, -0.0651299, 16.405, 49.8798)
+transform = Transform3D(1, 1.63439e-08, 1.54134e-09, -1.63439e-08, 0.982369, 0.186953, 1.54137e-09, -0.186953, 0.982369, 0, 11.615, 46.625)
 projection = 1
 size = 22.796797
 near = 10.04
